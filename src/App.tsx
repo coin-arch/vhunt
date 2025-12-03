@@ -9,7 +9,6 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import GlobalReach from "./pages/GlobalReach";
 import Contact from "./pages/Contact";
-import Testimonials from "./pages/Testimonials";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,7 +26,6 @@ const App = () => (
             <Route path="/services" element={<Services />} />
             <Route path="/global-reach" element={<GlobalReach />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/testimonials" element={<Testimonials />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
