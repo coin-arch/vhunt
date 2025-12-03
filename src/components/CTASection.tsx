@@ -53,8 +53,12 @@ const CTASection = () => {
                 <span>info@vhunt.com</span>
               </div>
               <div className="flex items-center space-x-2">
+                <Mail className="h-5 w-5" />
+                <span>pratap@vhunt.in</span>
+              </div>
+              <div className="flex items-center space-x-2">
                 <Phone className="h-5 w-5" />
-                <span>+91 123 456 7890</span>
+                <span>+91 88007 62299</span>
               </div>
             </div>
           </div>

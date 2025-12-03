@@ -2,18 +2,13 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { useTheme } from "next-themes";
-import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { theme } = useTheme();
-  const [mounted, setMounted] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
-    setMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
@@ -44,19 +39,11 @@ const Navbar = () => {
             to="/"
             className="flex items-center"
           >
-            {mounted && theme === "dark" ? (
-              <img 
-                src="/VHunt%20logo%20white.png" 
-                alt="VHunt Logo" 
-                className="h-10 lg:h-12 w-auto"
-              />
-            ) : (
-              <img 
-                src="/VHunt%20logo%20blue.png" 
-                alt="VHunt Logo" 
-                className="h-10 lg:h-12 w-auto"
-              />
-            )}
+            <img 
+              src="/VHunt%20logo%20blue.png" 
+              alt="VHunt Logo" 
+              className="h-10 lg:h-12 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -72,7 +59,6 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            <ThemeToggle />
             <Link to="/contact">
               <Button size="lg" className="bg-gradient-accent hover:shadow-glow transition-all duration-300">
                 Contact
@@ -80,9 +66,8 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Mobile Menu Button & Theme Toggle */}
+          {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-2">
-            <ThemeToggle />
             <button
               className="p-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

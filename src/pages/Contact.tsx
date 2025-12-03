@@ -75,6 +75,9 @@ const Contact = () => {
                         <p className="text-muted-foreground">
                           support@vhunt.com
                         </p>
+                        <p className="text-muted-foreground">
+                          pratap@vhunt.in
+                        </p>
                       </div>
                     </div>
 
@@ -87,10 +90,7 @@ const Contact = () => {
                           Phone
                         </h3>
                         <p className="text-muted-foreground">
-                          +91 123 456 7890
-                        </p>
-                        <p className="text-muted-foreground">
-                          +1 234 567 8900
+                          +91 88007 62299
                         </p>
                       </div>
                     </div>

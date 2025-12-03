@@ -1,34 +1,18 @@
 import { Link } from "react-router-dom";
 import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
-import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
 
 const Footer = () => {
-  const { theme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
   return (
     <footer className="bg-primary text-primary-foreground py-12">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div className="space-y-4">
-            {mounted && theme === "dark" ? (
-              <img 
-                src="/VHunt%20logo%20white.png" 
-                alt="VHunt Logo" 
-                className="h-8 w-auto"
-              />
-            ) : (
-              <img 
-                src="/VHunt%20logo%20blue.png" 
-                alt="VHunt Logo" 
-                className="h-8 w-auto"
-              />
-            )}
+            <img 
+              src="/VHunt%20logo%20blue.png" 
+              alt="VHunt Logo" 
+              className="h-8 w-auto"
+            />
             <p className="text-primary-foreground/80 text-sm">
               Your partner in digital excellence. Hunting the best solutions for
               your business growth.
