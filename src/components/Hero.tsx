@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-devices.jpg";
@@ -42,20 +43,24 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Button 
-              size="lg" 
-              className="bg-gradient-accent text-white hover:shadow-glow transition-all duration-300 text-lg px-8 py-6 group"
-            >
-              Get Started
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="border-2 text-lg px-8 py-6 hover:bg-accent/10 transition-all duration-300"
-            >
-              Learn More
-            </Button>
+            <Link to="/contact">
+              <Button 
+                size="lg" 
+                className="bg-gradient-accent text-white hover:shadow-glow transition-all duration-300 text-lg px-8 py-6 group"
+              >
+                Get Started
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+            <Link to="/about">
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="border-2 text-lg px-8 py-6 hover:bg-accent/10 transition-all duration-300"
+              >
+                Learn More
+              </Button>
+            </Link>
           </div>
 
           {/* Carousel */}

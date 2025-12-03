@@ -136,6 +136,34 @@ export default {
             opacity: "0.5",
           }
         },
+        "zoom-in": {
+          "0%": {
+            opacity: "0",
+            transform: "scale(0.8)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "scale(1)",
+          }
+        },
+        "map-pulse": {
+          "0%, 100%": {
+            transform: "scale(1)",
+            opacity: "1",
+          },
+          "50%": {
+            transform: "scale(1.02)",
+            opacity: "0.95",
+          }
+        },
+        "float-gentle": {
+          "0%, 100%": {
+            transform: "translateY(0px)",
+          },
+          "50%": {
+            transform: "translateY(-10px)",
+          }
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -145,6 +173,9 @@ export default {
         "scale-in": "scale-in 0.5s ease-out",
         "float": "float 3s ease-in-out infinite",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
+        "zoom-in": "zoom-in 1.2s ease-out",
+        "map-pulse": "map-pulse 4s ease-in-out infinite",
+        "float-gentle": "float-gentle 3s ease-in-out infinite",
       },
     },
   },

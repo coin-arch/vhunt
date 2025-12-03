@@ -1,15 +1,34 @@
+import { Link } from "react-router-dom";
 import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 const Footer = () => {
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   return (
     <footer className="bg-primary text-primary-foreground py-12">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold bg-gradient-accent bg-clip-text text-transparent">
-              VHunt
-            </h3>
+            {mounted && theme === "dark" ? (
+              <img 
+                src="/VHunt%20logo%20white.png" 
+                alt="VHunt Logo" 
+                className="h-8 w-auto"
+              />
+            ) : (
+              <img 
+                src="/VHunt%20logo%20blue.png" 
+                alt="VHunt Logo" 
+                className="h-8 w-auto"
+              />
+            )}
             <p className="text-primary-foreground/80 text-sm">
               Your partner in digital excellence. Hunting the best solutions for
               your business growth.
@@ -21,36 +40,52 @@ const Footer = () => {
             <h4 className="text-lg font-semibold">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a
-                  href="#home"
+                <Link
+                  to="/"
                   className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#about"
+                <Link
+                  to="/about"
                   className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#services"
+                <Link
+                  to="/services"
                   className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
                   Services
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#map"
+                <Link
+                  to="/global-reach"
                   className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
                   Global Reach
-                </a>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/testimonials"
+                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                >
+                  Testimonials
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/contact"
+                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                >
+                  Contact
+                </Link>
               </li>
             </ul>
           </div>

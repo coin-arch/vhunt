@@ -1,13 +1,19 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { useTheme } from "next-themes";
 import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
@@ -16,10 +22,11 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Global Reach", href: "#map" },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "Global Reach", href: "/global-reach" },
+    { name: "Testimonials", href: "/testimonials" },
   ];
 
   return (
@@ -33,28 +40,44 @@ const Navbar = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <a
-            href="#home"
-            className="text-2xl lg:text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent"
+          <Link
+            to="/"
+            className="flex items-center"
           >
-            VHunt
-          </a>
+            {mounted && theme === "dark" ? (
+              <img 
+                src="/VHunt%20logo%20white.png" 
+                alt="VHunt Logo" 
+                className="h-10 lg:h-12 w-auto"
+              />
+            ) : (
+              <img 
+                src="/VHunt%20logo%20blue.png" 
+                alt="VHunt Logo" 
+                className="h-10 lg:h-12 w-auto"
+              />
+            )}
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
-                className="text-foreground/80 hover:text-foreground transition-colors duration-200 font-medium"
+                to={link.href}
+                className={`text-foreground/80 hover:text-foreground transition-colors duration-200 font-medium ${
+                  location.pathname === link.href ? "text-foreground font-semibold" : ""
+                }`}
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
             <ThemeToggle />
-            <Button size="lg" className="bg-gradient-accent hover:shadow-glow transition-all duration-300">
-              Contact
-            </Button>
+            <Link to="/contact">
+              <Button size="lg" className="bg-gradient-accent hover:shadow-glow transition-all duration-300">
+                Contact
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button & Theme Toggle */}
@@ -78,18 +101,22 @@ const Navbar = () => {
           <div className="md:hidden py-4 animate-fade-in">
             <div className="flex flex-col space-y-4">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
-                  className="text-foreground/80 hover:text-foreground transition-colors duration-200 font-medium py-2"
+                  to={link.href}
+                  className={`text-foreground/80 hover:text-foreground transition-colors duration-200 font-medium py-2 ${
+                    location.pathname === link.href ? "text-foreground font-semibold" : ""
+                  }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
-              <Button size="lg" className="bg-gradient-accent w-full">
-                Contact
-              </Button>
+              <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                <Button size="lg" className="bg-gradient-accent w-full">
+                  Contact
+                </Button>
+              </Link>
             </div>
           </div>
         )}

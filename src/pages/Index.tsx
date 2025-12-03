@@ -1,21 +1,7 @@
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import About from "@/components/About";
-import GlobalMap from "@/components/GlobalMap";
-import Footer from "@/components/Footer";
+import { Navigate } from "react-router-dom";
 
 const Index = () => {
-  return (
-    <div className="min-h-screen">
-      <Navbar />
-      <Hero />
-      <Services />
-      <About />
-      <GlobalMap />
-      <Footer />
-    </div>
-  );
+  return <Navigate to="/" replace />;
 };
 
 export default Index;
