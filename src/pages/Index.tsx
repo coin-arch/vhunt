@@ -1,0 +1,21 @@
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Services from "@/components/Services";
+import About from "@/components/About";
+import GlobalMap from "@/components/GlobalMap";
+import Footer from "@/components/Footer";
+
+const Index = () => {
+  return (
+    <div className="min-h-screen">
+      <Navbar />
+      <Hero />
+      <Services />
+      <About />
+      <GlobalMap />
+      <Footer />
+    </div>
+  );
+};
+
+export default Index;
